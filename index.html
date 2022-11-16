@@ -17,14 +17,18 @@
 		</div>
 
 		<div class="textBox">
-			<input @keyup.enter="addTodo" type="text" class="typeBox" placeholder="Nuovo Todo" v-model="newTodo">
+			<input @keyup.enter="addTodo" type="text" class="typeBox" placeholder="Nuovo Todo" v-model="newTodo.text">
 			<button @click="addTodo">Aggiungi</button>
 		</div>
 
 		<div class="containerTodo">
 			<ul>
-				<li class="todo" v-for="(todo, i) in arrTodo" :key="todo" >
-					<div :class="{ lineStyle: done }" @click = "doneLine(i)">{{ todo }}</div>					
+				<li class="todo" 
+				v-for="(todo, i) in arrTodo" 
+				:key="todo.text" 
+				:class="{ lineStyle: todo.done }" 
+				@click = "doneLine(i)">
+					<div >{{ todo.text }}</div>					
 					<div class="icon"><i class="fa-sharp fa-solid fa-xmark" @click = "clearTodo(i)"></i></div>
 				</li>
 			</ul>

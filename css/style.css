@@ -14,10 +14,12 @@ body{
     height: 2rem;
     width: 300px;
     border-radius: 8px;
+    
 }
 
 button{
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .todo{
@@ -39,7 +41,7 @@ button{
 }
 
 li:hover{
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(200, 200, 200);
     cursor: pointer;
 }
 
@@ -50,7 +52,6 @@ i:hover{
 ul{
     display: flex;
     flex-direction: column;
-    
     gap: 20px;
 }
 

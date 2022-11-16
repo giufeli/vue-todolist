@@ -2,27 +2,43 @@ new Vue({
     el: '#root',
     data: {
         arrTodo: [
-            "Fare la spesa",
-            "Portare fuori il cane",
-            "Buttare la spazzatura",
+            {
+                text: "Fare la spesa",
+                done: false 
+            },
+            {
+                text: "Buttare la spazzatura",
+                done: false 
+            },
+            {
+                text: "Portare fuori il cane",
+                done: false 
+            },           
         ],
 
-        newTodo: "",  
-
-    done: false 
+        newTodo: {
+            text: '',
+            done: false 
+        },
+          
     },
 
     methods:{
-        doneLine(){
-            this.done = !this.done;
+        doneLine(index){
+            this.arrTodo[index].done = !this.arrTodo[index].done;
         },
+
         clearTodo(index){
             this.arrTodo.splice(index, 1)
         },
 
         addTodo(){
-            this.arrTodo.push(this.newTodo)
-            this.newTodo = ''
+            if(this.newTodo.text.trim()){
+                this.newTodo.text = this.newTodo.text.trim()
+                this.arrTodo.push({...this.newTodo})
+                this.newTodo.text = ''
+            }
+            
         },
     }
 });
